@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+	<head>
+		<title><!-- We want to override page titles -->
+			{% block title %}
+				Project
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	</head>
+	<body>
+		{% block content %}{% endblock %}
+		{% block footer %}{% endblock %}
+		<!-- We want to override page body -->
+		}
+	</body>
+</html>
