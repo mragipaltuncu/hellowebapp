@@ -1,4 +1,11 @@
 from django.shortcuts import render
 
 def index(request):
-	return render(request,'index.html')
+    #defining random variable
+    number = 6
+    thing = "Thing name"
+    #passing the variable to the template
+    return render(request,'index.html',{
+    'number': number,
+    'thing':thing,
+    })
