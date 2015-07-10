@@ -2,17 +2,28 @@
 <!doctype html>
 <html>
 	<head>
-		<title><!-- We want to override page titles -->
+		<title>
 			{% block title %}
 				Project
 			{% endblock %}
 		</title>
 		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		{% block header %}{% endblock %}
 	</head>
 	<body>
+		<header>
+			<h1>Web App</h1>
+			<nav>
+				<ul>
+					<li><a href="{% url 'home' %}">Homepage</a></li>
+					<li><a href="{% url 'about' %}">About</a></li>
+					<li><a href="{% url 'contact' %}">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
 		{% block content %}{% endblock %}
 		{% block footer %}{% endblock %}
-		<!-- We want to override page body -->
-		}
+		
+			
 	</body>
 </html>
