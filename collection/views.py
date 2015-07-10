@@ -1,11 +1,8 @@
 from django.shortcuts import render
+from collection.models import Thing
 
 def index(request):
-    #defining random variable
-    number = 6
-    thing = "Thing name"
-    #passing the variable to the template
+    things = Thing.objects.all()
     return render(request,'index.html',{
-    'number': number,
-    'thing':thing,
-    })
+    'things' : things,
+    }) 
