@@ -6,5 +6,3 @@ class Thing(models.Model):
     description = models.TextField()
     slug = models.SlugField(unique=True)
 
-
-
