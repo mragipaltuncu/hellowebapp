@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from collection.models import Thing
 from collection.forms import ThingForm
+import string
 
 def index(request):
     things = Thing.objects.all()
@@ -31,3 +32,17 @@ def edit_thing(request,slug):
         'form':form,
         })
 
+def browse_by_name(request,initial=None):
+    lowercaseletters = string.ascii_lowercase
+    if initial:
+        things = Thing.objects.filter(name__startswith=initial)
+        things = things.order_by('name')
+
+    else:
+        things = Thing.objects.all().order_by('name')
+
+    return render(request,'browse/browse_by_name.html',{
+        'things': things,
+        'initial':initial,
+        'letters':lowercaseletters,
+        })
