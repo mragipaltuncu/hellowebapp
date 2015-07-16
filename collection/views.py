@@ -31,4 +31,3 @@ def edit_thing(request,slug):
         'form':form,
         })
 
-
